@@ -1,14 +1,22 @@
 const { ApolloServer, gql } = require("apollo-server");
 
+ // for non-nullable values add ! at name end
 const typeDefs = gql`
   type Query {
-    hello: String
+    hello: String!,
+    kitneAdminThay: Int,
+    goliyoKiTadad: Float,
+    gaoWaleJagRaheThay: Boolean
   }
 `;
 
 const resolvers = {
   Query: {
-    hello: () => "World!!",
+    hello: () => "World!!!",
+    kitneAdminThay: ()=>"2",
+    goliyoKiTadad: ()=>1500.00,
+    gaoWaleJagRaheThay: ()=>false,
+
   },
 };
 
