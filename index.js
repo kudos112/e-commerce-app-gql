@@ -4,19 +4,28 @@ const { ApolloServer, gql } = require("apollo-server");
 const typeDefs = gql`
   type Query {
     hello: String!,
-    kitneAdminThay: Int,
-    goliyoKiTadad: Float,
-    gaoWaleJagRaheThay: Boolean
+    products: [Product!]!
+  }
+
+  type Product {
+    name: String!,
+    description: String!,
+    quantity: Int!,
+    price: Float!,
+    onSale: Boolean
   }
 `;
 
 const resolvers = {
   Query: {
     hello: () => "World!!!",
-    kitneAdminThay: ()=>"2",
-    goliyoKiTadad: ()=>1500.00,
-    gaoWaleJagRaheThay: ()=>false,
-
+    products: ()=>([{
+        name: "Macbook Pro",
+        description: "Love it, Only need 1",
+        quantity: "1",
+        price: 1000,
+        onSale: false
+    }])
   },
 };
 
